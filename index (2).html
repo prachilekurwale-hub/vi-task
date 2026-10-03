@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kiran Academy | IT Training & Career Development</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --secondary: #06b6d4;
+            --orange: #f97316;
+            --dark: #0f172a;
+            --dark-2: #1e293b;
+            --text: #334155;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --success: #16a34a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           TOP BAR
+        ========================== */
+
+        .topbar {
+            background: var(--dark);
+            color: white;
+            padding: 9px 0;
+            font-size: 14px;
+        }
+
+        .topbar-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .topbar span {
+            margin-right: 18px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo small {
+            display: block;
+            font-size: 9px;
+            color: var(--orange);
+            letter-spacing: 2px;
+            margin-top: -5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 9px;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .menu-btn {
+            display: none;
+            border: 0;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(6,182,212,.25), transparent 28%),
+                radial-gradient(circle at 20% 80%, rgba(79,70,229,.25), transparent 30%),
+                linear-gradient(135deg, #0f172a, #172554);
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 18px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: .3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #ea580c;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.4);
+            color: white;
+            background: rgba(255,255,255,.05);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 30px 70px rgba(0,0,0,.3);
+        }
+
+        .hero-card h3 {
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .hero-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,.15);
+        }
+
+        .hero-stat:last-child {
+            border: none;
+        }
+
+        .hero-stat strong {
+            font-size: 22px;
+            color: #38bdf8;
+        }
+
+        /* =========================
+           STATS
+        ========================== */
+
+        .stats {
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 15px 50px rgba(15,23,42,.12);
+            overflow: hidden;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 28px 15px;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-box:last-child {
+            border: none;
+        }
+
+        .stat-box h2 {
+            color: var(--primary);
+            font-size: 30px;
+        }
+
+        .stat-box p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title .small-title {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: var(--dark);
+            margin: 8px 0 12px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: auto;
+            color: #64748b;
+        }
+
+        /* =========================
+           COURSES
+        ========================== */
+
+        .courses {
+            background: var(--light);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            transition: .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            left: 0;
+            top: 0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15,23,42,.12);
+        }
+
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            background: #eef2ff;
+            color: var(--primary);
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .course-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .course-link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* =========================
+           WHY US
+        ========================== */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-image {
+            min-height: 420px;
+            border-radius: 25px;
+            background:
+                linear-gradient(rgba(79,70,229,.8), rgba(15,23,42,.9)),
+                url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+            display: flex;
+            align-items: end;
+            padding: 35px;
+            color: white;
+        }
+
+        .why-image h3 {
+            font-size: 30px;
+        }
+
+        .features {
+            display: grid;
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 17px;
+        }
+
+        .feature-icon {
+            min-width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #ecfeff;
+            color: #0891b2;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        .feature h3 {
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* =========================
+           PLACEMENT
+        ========================== */
+
+        .placement {
+            background: linear-gradient(135deg, #eef2ff, #ecfeff);
+        }
+
+        .placement-box {
+            background: var(--dark);
+            border-radius: 25px;
+            padding: 50px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .placement-box h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .placement-box p {
+            color: #cbd5e1;
+        }
+
+        .placement-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .placement-item {
+            padding: 20px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 12px;
+        }
+
+        .placement-item strong {
+            color: #38bdf8;
+            display: block;
+            font-size: 25px;
+        }
+
+        /* =========================
+           BATCHES
+        ========================== */
+
+        .batch-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 10px 40px rgba(15,23,42,.08);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .batch-table th,
+        .batch-table td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .batch-table th {
+            background: var(--dark);
+            color: white;
+        }
+
+        .batch-table td {
+            font-size: 14px;
+        }
+
+        .batch-badge {
+            background: #dcfce7;
+            color: var(--success);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           TESTIMONIALS
+        ========================== */
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .testimonial {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 18px;
+        }
+
+        .stars {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .student {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .student strong {
+            color: var(--dark);
+        }
+
+        .student small {
+            color: #64748b;
+            display: block;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #dbeafe;
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 60px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 45px;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                flex-direction: column;
+                box-shadow: 0 15px 30px rgba(0,0,0,.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-grid,
+            .why-grid,
+            .placement-box {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-grid,
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .topbar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .stats-grid,
+            .course-grid,
+            .testimonial-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-box {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .placement-box {
+                padding: 30px 20px;
+            }
+
+            .placement-list {
+                grid-template-columns: 1fr;
+            }
+
+            .batch-table {
+                font-size: 12px;
+            }
+
+            .batch-table th,
+            .batch-table td {
+                padding: 12px 8px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     TOP BAR
+========================== -->
+
+<div class="topbar">
+    <div class="container topbar-content">
+        <div>
+            <span>📞 +91 88888 09416</span>
+            <span>📍 Pune & Nagpur</span>
+        </div>
+
+        <div>
+            <span>🎓 Career-focused IT Training</span>
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<header class="navbar">
+    <div class="container nav-content">
+
+        <a href="#" class="logo">
+            Kiran<span>Academy</span>
+            <small>LEARN • BUILD • GROW</small>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#placement">Placement</a></li>
+            <li><a href="#batches">Batches</a></li>
+            <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+        </ul>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <span class="badge">
+                🚀 Build Your IT Career With Practical Learning
+            </span>
+
+            <h1>
+                Learn Skills.<br>
+                <span>Build Your Career.</span>
+            </h1>
+
+            <p>
+                Industry-focused training in Java, Python, Full Stack,
+                Testing, Data Science, Cloud and modern technologies.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#courses" class="btn btn-primary">
+                    Explore Courses →
+                </a>
+
+                <a href="#batches" class="btn btn-outline">
+                    View Batches
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <h3>Why Students Choose Us</h3>
+
+            <div class="hero-stat">
+                <span>Students Trained</span>
+                <strong>50K+</strong>
+            </div>
+
+            <div class="hero-stat">
+                <span>Students Placed</span>
+                <strong>25K+</strong>
+            </div>
+
+            <div class="hero-stat">
+                <span>Years of Training</span>
+                <strong>15+</strong>
+            </div>
+
+            <div class="hero-stat">
+                <span>Career Support</span>
+                <strong>✓</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================== -->
+
+<div class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat-box">
+            <h2>50K+</h2>
+            <p>Students Trained</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>25K+</h2>
+            <p>Students Placed</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>15+</h2>
+            <p>Years Experience</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>100+</h2>
+            <p>Industry Sessions</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     COURSES
+========================== -->
+
+<section class="courses" id="courses">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">Our Programs</div>
+
+            <h2>Explore Our Courses</h2>
+
+            <p>
+                Learn practical, industry-relevant technologies through
+                structured training and hands-on projects.
+            </p>
+
+        </div>
+
+
+        <div class="course-grid">
+
+            <div class="course-card">
+                <div class="course-icon">☕</div>
+                <h3>Java Full Stack</h3>
+                <p>
+                    Learn Core Java, Advanced Java, Spring, Hibernate,
+                    databases and full-stack development.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-icon">🐍</div>
+                <h3>Python Full Stack</h3>
+                <p>
+                    Build modern applications using Python, web frameworks,
+                    databases and development tools.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-icon">🧪</div>
+                <h3>Selenium Testing</h3>
+                <p>
+                    Learn automation testing, Selenium, frameworks,
+                    API testing and real-time testing practices.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-icon">⚛️</div>
+                <h3>MERN Stack</h3>
+                <p>
+                    Master MongoDB, Express, React and Node.js to create
+                    modern web applications.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-icon">☁️</div>
+                <h3>AWS & Cloud</h3>
+                <p>
+                    Understand cloud computing, AWS services,
+                    deployment and cloud infrastructure.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-icon">📊</div>
+                <h3>Data Science</h3>
+                <p>
+                    Learn Python, data analysis, machine learning and
+                    practical data science concepts.
+                </p>
+                <a href="#" class="course-link">View Course →</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT / WHY US
+========================== -->
+
+<section id="about">
+
+    <div class="container why-grid">
+
+        <div class="why-image">
+
+            <div>
+                <h3>Learn From Industry Professionals</h3>
+                <p>
+                    Practical learning, projects, interview preparation
+                    and career guidance.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="section-title" style="text-align:left; margin-bottom:30px;">
+
+                <div class="small-title">Why Kiran Academy?</div>
+
+                <h2>More Than Just Classes</h2>
+
+                <p>
+                    Our training approach focuses on technical skills,
+                    practical projects and career preparation.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">✓</div>
+
+                    <div>
+                        <h3>Practical Training</h3>
+                        <p>
+                            Work with real-world examples and hands-on
+                            programming exercises.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">⚡</div>
+
+                    <div>
+                        <h3>Industry-Relevant Curriculum</h3>
+                        <p>
+                            Learn technologies and concepts commonly used
+                            in software development.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">🎯</div>
+
+                    <div>
+                        <h3>Interview Preparation</h3>
+                        <p>
+                            Improve your resume, interview skills and
+                            technical problem-solving.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">👨‍💻</div>
+
+                    <div>
+                        <h3>Career Support</h3>
+                        <p>
+                            Get guidance throughout your learning and
+                            job-search journey.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PLACEMENT
+========================== -->
+
+<section class="placement" id="placement">
+
+    <div class="container">
+
+        <div class="placement-box">
+
+            <div>
+
+                <div class="small-title" style="color:#38bdf8;">
+                    CAREER SUPPORT
+                </div>
+
+                <h2>
+                    Prepare for Your Next Career Move
+                </h2>
+
+                <p>
+                    Build technical confidence through practical learning,
+                    mock interviews, resume preparation and career guidance.
+                </p>
+
+                <br>
+
+                <a href="#contact" class="btn btn-primary">
+                    Talk to Counsellor
+                </a>
+
+            </div>
+
+
+            <div class="placement-list">
+
+                <div class="placement-item">
+                    <strong>25K+</strong>
+                    Students Placed
+                </div>
+
+                <div class="placement-item">
+                    <strong>50K+</strong>
+                    Students Trained
+                </div>
+
+                <div class="placement-item">
+                    <strong>15+</strong>
+                    Years Experience
+                </div>
+
+                <div class="placement-item">
+                    <strong>100+</strong>
+                    Training Sessions
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BATCHES
+========================== -->
+
+<section id="batches">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">Upcoming Programs</div>
+
+            <h2>Upcoming Batches</h2>
+
+            <p>
+                Choose an online or classroom learning option
+                according to your schedule.
+            </p>
+
+        </div>
+
+
+        <div style="overflow-x:auto;">
+
+            <table class="batch-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Course</th>
+                        <th>Mode</th>
+                        <th>Time</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Java Full Stack</td>
+                        <td>Offline</td>
+                        <td>10:30 AM</td>
+                        <td>Pune</td>
+                        <td>
+                            <span class="batch-badge">Open</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Java Full Stack</td>
+                        <td>Online</td>
+                        <td>7:00 PM</td>
+                        <td>Online</td>
+                        <td>
+                            <span class="batch-badge">Open</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Python Full Stack</td>
+                        <td>Offline</td>
+                        <td>Morning</td>
+                        <td>Pune</td>
+                        <td>
+                            <span class="batch-badge">Open</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Java Full Stack</td>
+                        <td>Offline</td>
+                        <td>9:00 AM</td>
+                        <td>Nagpur</td>
+                        <td>
+                            <span class="batch-badge">Open</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TESTIMONIALS
+========================== -->
+
+<section style="background:#f8fafc;">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">Student Stories</div>
+
+            <h2>What Students Say</h2>
+
+            <p>
+                A modern testimonial section that you can connect
+                to your actual student reviews.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The practical sessions helped me understand concepts
+                    much better and improved my confidence."
+                </p>
+
+                <div class="student">
+                    <div class="avatar">A</div>
+
+                    <div>
+                        <strong>Akash</strong>
+                        <small>Java Student</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The course structure and interview preparation
+                    were useful during my job search."
+                </p>
+
+                <div class="student">
+                    <div class="avatar">P</div>
+
+                    <div>
+                        <strong>Priya</strong>
+                        <small>Python Student</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "I liked the combination of classroom learning,
+                    projects and technical interview practice."
+                </p>
+
+                <div class="student">
+                    <div class="avatar">R</div>
+
+                    <div>
+                        <strong>Rahul</strong>
+                        <small>Full Stack Student</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="cta" id="contact">
+
+    <div class="container">
+
+        <h2>Ready to Start Your IT Journey?</h2>
+
+        <p>
+            Explore our courses, check upcoming batches and
+            connect with our career counsellors.
+        </p>
+
+        <a href="tel:+918888809416" class="btn btn-primary">
+            📞 Call Now
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="logo" style="color:white;">
+                    Kiran<span>Academy</span>
+                </div>
+
+                <p style="margin-top:15px;">
+                    Career-focused IT training with practical learning,
+                    technical development and career support.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Courses</h3>
+
+                <ul>
+                    <li><a href="#">Java Full Stack</a></li>
+                    <li><a href="#">Python</a></li>
+                    <li><a href="#">Selenium</a></li>
+                    <li><a href="#">MERN Stack</a></li>
+                    <li><a href="#">Data Science</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#placement">Placement</a></li>
+                    <li><a href="#batches">Batches</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <ul>
+                    <li>📞 +91 88888 09416</li>
+                    <li>📍 Pune, Maharashtra</li>
+                    <li>📍 Nagpur, Maharashtra</li>
+                    <li>✉️ info@kiranacademy.com</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Kiran Academy. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+    function toggleMenu() {
+
+        const nav = document.getElementById("navLinks");
+
+        nav.classList.toggle("active");
+
+    }
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document.getElementById("navLinks")
+                .classList.remove("active");
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
